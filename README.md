@@ -3,6 +3,26 @@
 A React context provider that allows users to authenticate using their Solana wallet. It uses browser local storage to store the authentication data. which includes the signature, public key, and the timestamp of the signature in seconds.
 It verifies the signature using the public key and the signature itself and also checks the timestamp to ensure that the signature is not expired.
 
+# Installation
+
+### bun
+
+```bash
+bun add solana-react-auth
+```
+
+### yarn
+
+```bash
+yarn add solana-react-auth
+```
+
+### npm
+
+```bash
+npm install solana-react-auth
+```
+
 # Exposed Objects
 
 ### `SolanaAuthProvider`
@@ -49,3 +69,7 @@ type AuthStorage = {
 ```
 
 An object that represents the authentication data stored in the local storage of the browser.
+
+```
+
+```

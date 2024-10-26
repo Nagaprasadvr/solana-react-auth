@@ -34,7 +34,7 @@ A React component that wraps the application and provides the authentication con
 - **`children`**: A React node that represents the children of the component.
 - **`authTimeout`**: A number that represents the timeout of the authentication in seconds.
 
-> Note: This provider should be a children of WalletProvider from @solana/wallet-adapter-react.
+> Note: This provider should be a child of WalletProvider from @solana/wallet-adapter-react.
 
 ```tsx
 <SolanaAuthProvider
@@ -60,16 +60,12 @@ const { checkIsAuthenticated, authenticate, getAuthData } = useSolanaAuth();
 
 ### `AuthStorage`
 
+An object that represents the authentication data stored in the local storage of the browser.
+
 ```typescript
 type AuthStorage = {
   signature: string;
   pubkey: string;
   signedAt: number;
 };
-```
-
-An object that represents the authentication data stored in the local storage of the browser.
-
-```
-
 ```

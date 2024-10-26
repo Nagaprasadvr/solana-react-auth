@@ -1,0 +1,32 @@
+solana-react-auth-test/
+# Ignore source code if you're publishing only the build output
+src/
+# Ignore Bun's lockfile
+bun.lockb
+
+# Ignore TypeScript configs and cache
+tsconfig.json
+
+# Ignore build tools and scripts
+scripts/
+.vscode/
+.env
+.DS_Store  # macOS specific
+Thumbs.db  # Windows specific
+
+# Ignore test files and coverage
+tests/
+test/
+*.test.*
+coverage/
+.jest/
+.nyc_output/
+
+# Ignore Git files and metadata
+.git/
+.gitignore
+
+# Ignore unnecessary files
+npm-debug.log
+yarn.lock
+package-lock.json

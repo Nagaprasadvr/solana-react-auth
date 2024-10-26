@@ -1,0 +1,44 @@
+{
+  "name": "solana-react-auth",
+  "description": "Solana React Auth",
+  "license": "MIT",
+  "author": {
+    "name": "Nagaprasad V R",
+    "email": "nagaprasadvr246@gmail.com"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "version": "2.0.2",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir ./dist --minify --format esm --external react --external react-dom "
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^18.3.11"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.4",
+    "bs58": "^6.0.0",
+    "buffer": "^6.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tweetnacl": "^1.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NagaprasadVr/solana-react-auth.git"
+  },
+  "keywords": [
+    "solana",
+    "react",
+    "auth",
+    "web3"
+  ]
+}

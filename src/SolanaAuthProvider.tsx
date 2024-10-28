@@ -14,7 +14,7 @@ import solanaCrypto from "tweetnacl";
 
 export type SolanaAuthProviderProps = {
   children: ReactNode;
-  message: object;
+  message: object | string;
   wallet: WalletContextState;
   authTimeout: number; // in seconds
 };
@@ -188,7 +188,16 @@ async function signMessage(jsonMessage: object, wallet: WalletContextState) {
   return encodeWithBase58(signature);
 }
 
-function getJsonMessage(pubkey: string, jsonMessage: any) {
+function getJsonMessage(pubkey: string, jsonMessage: any): object {
+  if (typeof jsonMessage === "string") {
+    const message = {
+      message: jsonMessage,
+      pubkey: minimizePubkey(pubkey),
+    };
+
+    return message;
+  }
+
   if (!jsonMessage["pubkey"]) {
     jsonMessage["pubkey"] = minimizePubkey(pubkey);
   }

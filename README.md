@@ -38,7 +38,9 @@ A React component that wraps the application and provides the authentication con
 ```tsx
 <SolanaAuthProvider
   wallet={wallet}
-  message="Sign in to continue"
+  message={{
+    message: "Sign in to continue",
+  }}
   authTimeout={60}
 >
   <App />

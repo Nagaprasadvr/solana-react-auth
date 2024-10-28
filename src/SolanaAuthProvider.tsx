@@ -6,7 +6,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { PublicKey } from "@solana/web3.js";
+
 import { type WalletContextState } from "@solana/wallet-adapter-react";
 
 import bs58 from "bs58";
@@ -145,9 +145,8 @@ export const useSolanaAuth = () => {
   return useContext(SolanaAuthContext);
 };
 
-function minimizePubkey(pubkey: PublicKey) {
-  const pubkeyStr = pubkey.toBase58();
-  return pubkeyStr.slice(0, 4) + "..." + pubkeyStr.slice(-4);
+function minimizePubkey(pubkey: string) {
+  return pubkey.slice(0, 5) + "..." + pubkey.slice(-5);
 }
 
 function encodeWithBase58(sig: Uint8Array) {
@@ -159,11 +158,7 @@ function decodeWithBase58(sig: string) {
 }
 
 function getMessageToSign(jsonMessage: object) {
-  return new Uint8Array(
-    JSON.stringify(jsonMessage)
-      .split("")
-      .map((c) => c.charCodeAt(0))
-  );
+  return new TextEncoder().encode(JSON.stringify(jsonMessage));
 }
 
 function verifySignature(
@@ -195,7 +190,7 @@ async function signMessage(jsonMessage: object, wallet: WalletContextState) {
 
 function getJsonMessage(pubkey: string, jsonMessage: any) {
   if (!jsonMessage["pubkey"]) {
-    jsonMessage["pubkey"] = pubkey;
+    jsonMessage["pubkey"] = minimizePubkey(pubkey);
   }
   return jsonMessage;
 }

@@ -29,9 +29,8 @@ npm install solana-react-auth
 
 A React component that wraps the application and provides the authentication context. It takes the following props:
 
-- **`wallet`**: WalletContext returend from useWallet hook from @solana/wallet-adapter-react.
+- **`wallet`**: WalletContext from useWallet hook
 - **`message`**: A string that represents the message to be signed by the user.
-- **`children`**: A React node that represents the children of the component.
 - **`authTimeout`**: A number that represents the timeout of the authentication in seconds.
 
 > Note: This provider should be a child of WalletProvider from @solana/wallet-adapter-react.
